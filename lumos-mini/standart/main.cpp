@@ -2,6 +2,8 @@
 #include <cstdio>
 #include <ctime>
 #include <array>
+#include <iostream>
+#include <string>
 
 int partition(int *arr, int first, int last)
 {
@@ -13,16 +15,16 @@ int partition(int *arr, int first, int last)
 		if (*(arr + j) <= x)
 		{
 			i++;
-			std::swap(arr[i], arr[j]);
-			//tmp = *(arr + i);
-			//*(arr + i) = *(arr + j);
-			//*(arr + j) = tmp;
+			//std::swap(arr[i], arr[j]);
+			tmp = *(arr + i);
+			*(arr + i) = *(arr + j);
+			*(arr + j) = tmp;
 		}
 	}
-	std::swap(arr[i + 1], arr[last]);
-	//tmp = *(arr + last);
-	//*(arr + last) = *(arr + i + 1);
-	//*(arr + i + 1) = tmp;
+	//std::swap(arr[i + 1], arr[last]);
+	tmp = *(arr + last);
+	*(arr + last) = *(arr + i + 1);
+	*(arr + i + 1) = tmp;
 	return i + 1;
 }
 
@@ -50,14 +52,23 @@ int main(int argc, char* argv[])
 
 	fread(data, sizeof(*data), N, stdin);
 
+	std::string s1 = "", s2 = "";
+	for (int i = 0; i < N; ++i)
+	{
+		s1 += std::to_string(data[i]) + " ";
+	}
+
 	clock_t start, end;
 
 	start = clock();
 
-	quicksort(data, 0, N);
+	quicksort(data, 0, N-1);
 
 	end = clock();
-
+	for (int i = 0; i < N; ++i)
+	{
+		s2 += std::to_string(data[i]) + " ";
+	}
 	double time = (double)((end - start) / CLOCKS_PER_SEC);
 
 	fwrite(&time, sizeof(time), 1, stdout);

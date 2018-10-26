@@ -17,7 +17,7 @@ int main()
 		{
 		case 1:
 			{
-				std::cout << "1.Main menu\n2.Compile lumos\n3.Generate tests\n4.Run tests\n5.Exit\n";
+				std::cout << "1.Main menu\n2.Compile solution\n3.Generate tests\n4.Run tests\n5.Exit\n";
 				break;
 			}
 		case 2:
@@ -36,13 +36,14 @@ int main()
 			}
 		case 3:
 			{
-				for ( int i = 0; i < 5; ++i)
+				int rep1, rep2;
+				for (int i = 0; i < 5; ++i)
 				{
 					std::string str = "E:\\SoftGrader\\lumos-mini\\lumos-mini\\simple_testing_system\\testGen E:\\SoftGrader\\lumos-mini\\lumos-mini\\tests\\";
 					str += std::to_string(i + 1);
 					char *cstr = new char[str.length() + 1];
 					strcpy(cstr, str.c_str());
-					int rep1 = system(cstr);
+					rep1 = system(cstr);
 					delete[] cstr;
 
 					str = "E:\\SoftGrader\\lumos-mini\\lumos-mini\\simple_testing_system\\standart E:\\SoftGrader\\lumos-mini\\lumos-mini\\tests\\";
@@ -51,17 +52,18 @@ int main()
 					str += std::to_string(i + 1) + ".ans";
 					cstr = new char[str.length() + 1];
 					strcpy(cstr, str.c_str());
-					int rep2 = system(cstr);
-					if (!rep1 && !rep2)
-					{
-						std::cout << "tests ready to use!";
-					}
-					else
-					{
-						std::cout << "fail! try again :(";
-					}
+					rep2 = system(cstr);
 					delete[] cstr;
 				}
+				if (!rep1 && !rep2)
+				{
+					std::cout << "tests ready to use!" << std::endl;
+				}
+				else
+				{
+					std::cout << "fail! try again :(" << std::endl;
+				}
+
 				break;
 			}
 		case 4:
@@ -76,6 +78,12 @@ int main()
 					strcpy(cstr, str.c_str());
 					system(cstr);
 					delete[] cstr;
+					str = "E:\\SoftGrader\\lumos-mini\\lumos-mini\\simple_testing_system\\cheker E:\\SoftGrader\\lumos-mini\\lumos-mini\\tests\\1 E:\\SoftGrader\\lumos-mini\\lumos-mini\\ans_user\\";
+					str += std::to_string(i + 1) + ".out E:\\SoftGrader\\lumos-mini\\lumos-mini\\result.txt E:\\SoftGrader\\lumos-mini\\lumos-mini\\tests\\";
+					str += std::to_string(i + 1) + ".ans";
+					cstr = new char[str.length() + 1];
+					strcpy(cstr, str.c_str());
+					system(cstr);
 				}
 				break;
 			}

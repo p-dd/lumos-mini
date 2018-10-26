@@ -3,6 +3,7 @@
 #include <cmath>
 #include <string>
 #include "result.h"
+#include <iostream>
 using namespace std;
 
 int main(int argc, char* argv[])
@@ -45,11 +46,19 @@ int main(int argc, char* argv[])
 	if (!mistake)
 	{
 		checker_result.write_message("AC. Numbers are equal.");
+		string tmp = string(argv[2]);
+		int size = tmp.length();
+		std::cout << "test " << tmp[size - 5] << ": ";
+		std::cout << "AC. Numbers are equal." << endl;
 		//checker_result.write_verdict(verdict::AC);
 	}
 	else
 	{
 		checker_result.write_message("WA. Output is not correct.");
+		string tmp = string(argv[2]);
+		int size = tmp.length();
+		std::cout << "test " << tmp[size - 5] << ": ";
+		std::cout << "WA. Output is not correct." << endl;
 		//checker_result.write_verdict(verdict::WA);
 	}
 

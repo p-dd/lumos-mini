@@ -6,19 +6,18 @@
 #include <fstream>
 
 /*
-// Checker ����� ������������� ��� ��� ��� ��������:
-AC = Accepted = ������� ����� ���������� ��������� �� ������ �����
-WA = Wrong Answer = ������� ����� ������������ ��������� �� ������ �����
-PE = Presentation Error = ������ ������� �������� ������
+// Checker
+AC = Accepted 
+WA = Wrong Answer
+PE = Presentation Error 
 
-// ��������� �������� checker �� ����� �������������
-NO = No verdict = ������� �����������
-CE = Compilation Error = ������ ����������
-ML = Memory Limit Exceeded = ��������� ����������� �� ������
-TL = Time Limit Exceeded = ��������� ����������� �� ������� ������
-RE = Runtime Error = ������ ������� ���������� ���������
-IL = Idle Limit Exceeded = ��������� ����� ������� (�����������) ���������
-DE = Deadly Error = ������ ����������� �������
+NO = No verdict 
+CE = Compilation Error 
+ML = Memory Limit Exceeded 
+TL = Time Limit Exceeded 
+RE = Runtime Error 
+IL = Idle Limit Exceeded 
+DE = Deadly Error 
 */
 
 enum verdict { NO = 1, AC, WA, CE, ML, TL, RE, IL, PE, DE };
@@ -58,19 +57,15 @@ public:
 		fout << str;
 	}
 
-	// �������� ����������� ������� ����� ������ ��������� ���������, 
-	//   ����������� � ������� before_code
-	// x ����� ����������� 100 �� = 10 ^ (-7) ���
 	void write_time(long long x)
 	{
 		write_type(ext_cls::TIME); 
 		fout << x;
 	}
 
-	// �������� ����������� �������, ������ ������������� ���������� ���������
-	void write_memory(unsigned long long x)
+	/*void write_memory(unsigned long long x)
 	{
 		write_type(ext_cls::MEMORY); 
 		fout << x;
-	}
+	}*/
 };

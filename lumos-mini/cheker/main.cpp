@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
 	fread(&n, sizeof(n), 1, bui);
 
 	// Выделяем память для матрицы ответа жюри и ответа участника
-	int * ans = new int[n], *res = new int[n];
+	int * ans = new int[n], *res = new int[n], *input = new int[n];
 	double ans_time, res_time;
 
 	// Считываем время работы программы участника и матрицу участника
@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
 	{
 		checker_result.write_message("AC. Numbers are equal.");
 		string tmp = string(argv[2]);
-		int size = tmp.length();
+		const int size = tmp.length();
 		std::cout << "test " << tmp[size - 5] << ": ";
 		std::cout << "AC. Numbers are equal." << endl;
 		//checker_result.write_verdict(verdict::AC);
@@ -56,12 +56,32 @@ int main(int argc, char* argv[])
 	{
 		checker_result.write_message("WA. Output is not correct.");
 		string tmp = string(argv[2]);
-		int size = tmp.length();
+		const int size = tmp.length();
 		std::cout << "test " << tmp[size - 5] << ": ";
 		std::cout << "WA. Output is not correct." << endl;
 		//checker_result.write_verdict(verdict::WA);
 	}
 
+	fread(input, sizeof(*input), n, bui);
+
+	string src = string(argv[2]);
+	const int s = src.length();
+	std::cout << "test " << src[s - 5] << ": input: ";
+	for (int i = 0; i < n; ++i)
+	{
+		std::cout << input[i] << " ";
+	}
+	std::cout << " output: ";
+	for (int i = 0; i < n; ++i)
+	{
+		std::cout << ans[i] << " ";
+	}
+	std::cout << "your output: ";
+	for (int i = 0; i < n; ++i)
+	{
+		std::cout << res[i] << " ";
+	}
+	cout << endl << endl;
 	// Записываем время в правильной размерности (интервалы по 100 нс = 10 ^ (-7) сек).
 	//checker_result.write_time(res_time * 1e7);
 

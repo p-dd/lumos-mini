@@ -78,7 +78,9 @@ int main()
 					strcpy(cstr, str.c_str());
 					system(cstr);
 					delete[] cstr;
-					str = "E:\\SoftGrader\\lumos-mini\\lumos-mini\\simple_testing_system\\cheker E:\\SoftGrader\\lumos-mini\\lumos-mini\\tests\\1 E:\\SoftGrader\\lumos-mini\\lumos-mini\\ans_user\\";
+					str = "E:\\SoftGrader\\lumos-mini\\lumos-mini\\simple_testing_system\\cheker E:\\SoftGrader\\lumos-mini\\lumos-mini\\tests\\";
+					str += std::to_string(i + 1) + " ";
+					str += "E:\\SoftGrader\\lumos-mini\\lumos-mini\\ans_user\\";
 					str += std::to_string(i + 1) + ".out E:\\SoftGrader\\lumos-mini\\lumos-mini\\result.txt E:\\SoftGrader\\lumos-mini\\lumos-mini\\tests\\";
 					str += std::to_string(i + 1) + ".ans";
 					cstr = new char[str.length() + 1];

@@ -5,12 +5,12 @@
 
 int main(int argc, char* argv[])
 {
-	if (argc == 3 && std::string(argv[1]) == "typer")
+	if (argc == 4 && std::string(argv[1]) == "typer")
 	{
 		int N;
-		char const* file_out = argv[2];
+		char const* file_out = argv[3];
 
-		std::ifstream fin("input.txt");
+		std::ifstream fin(argv[2]);
 
 		fin >> N;
 
@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 		fwrite(&N, sizeof(N), 1, stdout);
 		fwrite(data, sizeof(*data), N, stdout);
 	}
-	if (argc == 5 && std::string(argv[1]) == "viewer")
+	if (argc == 4 && std::string(argv[1]) == "viewer")
 	{
 		int N;
 		double time;
